@@ -1,15 +1,16 @@
 {
-  "name": "dbms",
+  "name": "library-management-system",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Library system with Vercel and MongoDB",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "node": "^25.1.0"
+    "mongoose": "^8.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^32.0.0"
   }
 }
