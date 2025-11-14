@@ -229,21 +229,15 @@
                 <!-- Manage Books Tab Content -->
                 <div id="books-tab" class="tab-content hidden">
                     <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
-                        <div class="p-5 border-b border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div class="p-5 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
                             <h2 class="text-lg font-semibold flex items-center">
                                 <i data-lucide="book-open" class="icon mr-2 text-indigo-500"></i>
                                 Book Catalog
                             </h2>
-                            <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-                                <div class="relative w-full sm:w-64">
-                                    <input type="search" id="book-search-input" placeholder="Search by title or author..." class="form-input pl-10 w-full">
-                                    <i data-lucide="search" class="icon absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                                </div>
-                                <button id="add-book-btn" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 flex items-center w-full sm:w-auto justify-center">
-                                    <i data-lucide="plus" class="icon mr-2"></i>
-                                    Add New Book
-                                </button>
-                            </div>
+                            <button id="add-book-btn" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 flex items-center">
+                                <i data-lucide="plus" class="icon mr-2"></i>
+                                Add New Book
+                            </button>
                         </div>
                         <div class="p-5">
                             <div class="overflow-x-auto">
@@ -271,21 +265,15 @@
                 <!-- Manage Members Tab Content -->
                 <div id="members-tab" class="tab-content hidden">
                     <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
-                        <div class="p-5 border-b border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div class="p-5 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
                             <h2 class="text-lg font-semibold flex items-center">
                                 <i data-lucide="users" class="icon mr-2 text-indigo-500"></i>
                                 Library Members
                             </h2>
-                            <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-                                <div class="relative w-full sm:w-64">
-                                    <input type="search" id="member-search-input" placeholder="Search by name or city..." class="form-input pl-10 w-full">
-                                    <i data-lucide="search" class="icon absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                                </div>
-                                <button id="add-member-btn" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 flex items-center w-full sm:w-auto justify-center">
-                                    <i data-lucide="plus" class="icon mr-2"></i>
-                                    Add New Member
-                                </button>
-                            </div>
+                            <button id="add-member-btn" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 flex items-center">
+                                <i data-lucide="plus" class="icon mr-2"></i>
+                                Add New Member
+                            </button>
                         </div>
                         <div class="p-5">
                             <div class="overflow-x-auto">
@@ -423,19 +411,12 @@
         // --- UI Rendering Functions ---
         function renderBooksTable() {
             const booksTableBody = document.getElementById('books-table-body');
-            const searchTerm = document.getElementById('book-search-input').value.toLowerCase();
-            
-            const filteredBooks = allBooks.filter(book => 
-                book.title.toLowerCase().includes(searchTerm) ||
-                book.author.toLowerCase().includes(searchTerm)
-            );
-
             booksTableBody.innerHTML = ''; // Clear loading
             
-            if (filteredBooks.length === 0) {
-                booksTableBody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-gray-500 dark:text-gray-400">No books found${searchTerm ? ' matching "' + searchTerm + '"' : ". Click 'Add New Book' to start."}</td></tr>`;
+            if (allBooks.length === 0) {
+                booksTableBody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-gray-500 dark:text-gray-400">No books found. Click 'Add New Book' to start.</td></tr>`;
             } else {
-                filteredBooks.forEach(book => {
+                allBooks.forEach(book => {
                     const tr = document.createElement('tr');
                     tr.className = "hover:bg-gray-50 dark:hover:bg-gray-700";
                     tr.innerHTML = `
@@ -462,19 +443,12 @@
 
         function renderMembersTable() {
             const membersTableBody = document.getElementById('members-table-body');
-            const searchTerm = document.getElementById('member-search-input').value.toLowerCase();
-
-            const filteredMembers = allMembers.filter(member =>
-                member.name.toLowerCase().includes(searchTerm) ||
-                member.city.toLowerCase().includes(searchTerm)
-            );
-            
             membersTableBody.innerHTML = ''; // Clear loading
 
-            if (filteredMembers.length === 0) {
-                membersTableBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-gray-500 dark:text-gray-400">No members found${searchTerm ? ' matching "' + searchTerm + '"' : ". Click 'Add New Member' to start."}</td></tr>`;
+            if (allMembers.length === 0) {
+                membersTableBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-gray-500 dark:text-gray-400">No members found. Click 'Add New Member' to start.</td></tr>`;
             } else {
-                filteredMembers.forEach(member => {
+                allMembers.forEach(member => {
                     const joinDate = new Date(member.joinDate).toLocaleDateString();
                     
                     const tr = document.createElement('tr');
@@ -577,10 +551,6 @@
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) modal.classList.add('hidden');
             });
-
-            // --- Search Handlers ---
-            document.getElementById('book-search-input').addEventListener('input', renderBooksTable);
-            document.getElementById('member-search-input').addEventListener('input', renderMembersTable);
 
             // --- Form Handlers (Add/Edit) ---
             document.getElementById('add-book-btn').addEventListener('click', () => _FORM_ACTIONS.showBookForm());
