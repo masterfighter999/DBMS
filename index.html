@@ -425,8 +425,13 @@
                         <div><label class="form-label">ISBN</label><input id="bi" class="form-input" required value="${b.isbn||''}" placeholder="ISBN"></div>
                         <div><label class="form-label">Category</label><input id="bc" class="form-input" required value="${b.category||''}" placeholder="Genre"></div>
                     </div>
-                    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-4 rounded-lg shadow-sm transition-colors mt-2">Save Book</button></form>`;
+                    <div class="flex gap-3 mt-4">
+                        <button type="button" id="bcancel" class="flex-1 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 font-bold py-2.5 px-4 rounded-lg transition-colors">Cancel</button>
+                        <button type="submit" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-4 rounded-lg shadow-sm transition-colors">Save Book</button>
+                    </div>
+                </form>`;
                 modal.classList.remove('hidden');
+                document.getElementById('bcancel').onclick = () => modal.classList.add('hidden');
                 document.getElementById('bf').onsubmit = async (e) => {
                     e.preventDefault();
                     await apiCall(id?`/api/books?id=${id}`:'/api/books', id?'PUT':'POST', {
@@ -448,8 +453,13 @@
                     <div><label class="form-label">Name (Uppercase)</label><input id="mn" class="form-input" required value="${m.name||''}" oninput="this.value=this.value.toUpperCase()" placeholder="FULL NAME"></div>
                     <div><label class="form-label">City</label><input id="mc" class="form-input" required value="${m.city||''}" placeholder="City"></div>
                     <div><label class="form-label">Status</label><select id="ms" class="form-input"><option value="A" ${m.status==='A'?'selected':''}>Active</option><option value="S" ${m.status==='S'?'selected':''}>Suspended</option></select></div>
-                    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-4 rounded-lg shadow-sm transition-colors mt-2">Save Member</button></form>`;
+                    <div class="flex gap-3 mt-4">
+                        <button type="button" id="mcancel" class="flex-1 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 font-bold py-2.5 px-4 rounded-lg transition-colors">Cancel</button>
+                        <button type="submit" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-4 rounded-lg shadow-sm transition-colors">Save Member</button>
+                    </div>
+                </form>`;
                 modal.classList.remove('hidden');
+                document.getElementById('mcancel').onclick = () => modal.classList.add('hidden');
                 document.getElementById('mf').onsubmit = async (e) => {
                     e.preventDefault();
                     await apiCall(id?`/api/members?id=${id}`:'/api/members', id?'PUT':'POST', {
