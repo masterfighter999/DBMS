@@ -18,7 +18,6 @@ export default async function handler(req, res) {
         let query = {};
         
         // 1. FILTERING LOGIC
-        // This ensures we only fetch loans where returnDate is null (Active)
         if (active === 'true') {
           query.returnDate = null;
         }
@@ -36,18 +35,28 @@ export default async function handler(req, res) {
           const loansWithCurrentFine = loans.map(loan => {
             let currentFine = 0;
             
-            // Check if due date has passed
-            if (loan.dueDate && now > loan.dueDate) {
-              const diffTime = now.getTime() - loan.dueDate.getTime();
-              const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-              currentFine = diffDays * FINE_RATE_PER_DAY;
+            try {
+                // SAFETY CHECK: Ensure dueDate is a valid Date object before checking time
+                // This prevents crashes if data is slightly malformed or loading
+                if (loan.dueDate instanceof Date && !isNaN(loan.dueDate) && now > loan.dueDate) {
+                  const diffTime = now.getTime() - loan.dueDate.getTime();
+                  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                  currentFine = diffDays * FINE_RATE_PER_DAY;
+                }
+            } catch (e) {
+                console.warn("Skipping fine calc for loan:", loan._id);
             }
 
             // CRITICAL FIX: Use toJSON() so that 'bookId' becomes 'book'
-            const loanObject = loan.toJSON(); 
-            loanObject.currentFine = currentFine;
-            
-            return loanObject;
+            // We wrap this in try-catch to allow the rest of the list to load even if one fails
+            try {
+                const loanObject = loan.toJSON(); 
+                loanObject.currentFine = currentFine;
+                return loanObject;
+            } catch (e) {
+                // Fallback: return basic object if toJSON fails
+                return { ...loan.toObject(), currentFine: 0 };
+            }
           });
           return res.status(200).json(loansWithCurrentFine);
         }

@@ -8,136 +8,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.0/lucide.min.js"></script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* Default light mode background */
-        }
-        
-        .dark body {
-            background-color: #111827; /* Dark mode background */
-        }
-        
-        /* Custom scrollbar for webkit browsers */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-        .dark ::-webkit-scrollbar-thumb {
-            background: #555;
-        }
-        .dark ::-webkit-scrollbar-thumb:hover {
-            background: #888;
-        }
-
-        /* Hide number input spinners */
-        input[type='number']::-webkit-inner-spin-button,
-        input[type='number']::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-        input[type='number'] {
-            -moz-appearance: textfield;
-        }
-
-        /* Lucide icon styling */
-        .icon {
-            width: 1.125rem;
-            height: 1.125rem;
-            stroke-width: 2;
-        }
-
-        /* Form & Tab Styles */
-        .form-label {
-            /* @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1; */
-            display: block;
-            font-size: 0.875rem; /* 14px */
-            line-height: 1.25rem; /* 20px */
-            font-weight: 500;
-            color: rgb(55 65 81);
-            margin-bottom: 0.25rem;
-        }
-        .dark .form-label {
-            color: rgb(209 213 219);
-        }
-
-        .form-input {
-            /* @apply w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white; */
-            width: 100%;
-            padding: 0.5rem;
-            border-width: 1px;
-            border-color: rgb(209 213 219);
-            border-radius: 0.375rem;
-            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            color: rgb(17 24 39);
-            background-color: #fff; /* Explicitly set light mode background */
-        }
-        .form-input:focus {
-            --tw-ring-color: rgb(99 102 241);
-            --tw-ring-shadow: 0 0 0 1px var(--tw-ring-color);
-            box-shadow: var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-            border-color: rgb(99 102 241);
-            outline: 2px solid transparent;
-            outline-offset: 2px;
-        }
-        .dark .form-input {
-            background-color: rgb(55 65 81);
-            border-color: rgb(75 85 99);
-            color: rgb(255 255 255);
-        }
-        .dark .form-input::placeholder {
-            color: rgb(156 163 175);
-        }
-
-        .active-tab {
-            /* @apply -mb-px border-b-2 border-indigo-500 px-3 py-3 text-sm font-semibold text-indigo-600 dark:text-indigo-400; */
-            margin-bottom: -1px;
-            border-bottom-width: 2px;
-            border-color: rgb(99 102 241);
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-            padding-top: 0.75rem;
-            padding-bottom: 0.75rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: rgb(79 70 229);
-        }
-        .dark .active-tab {
-            color: rgb(129 140 248);
-        }
-
-        .inactive-tab {
-            /* @apply border-b-2 border-transparent px-3 py-3 text-sm font-semibold text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-gray-500 dark:hover:text-gray-300; */
-            border-bottom-width: 2px;
-            border-color: transparent;
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-            padding-top: 0.75rem;
-            padding-bottom: 0.75rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: rgb(107 114 128);
-        }
-        .inactive-tab:hover {
-            border-color: rgb(209 213 219);
-            color: rgb(55 65 81);
-        }
-        .dark .inactive-tab {
-            color: rgb(156 163 175);
-        }
-        .dark .inactive-tab:hover {
-            border-color: rgb(107 114 128);
-            color: rgb(209 213 219);
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
+        .dark body { background-color: #111827; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        .dark ::-webkit-scrollbar-thumb { background: #555; }
+        .icon { width: 1.125rem; height: 1.125rem; stroke-width: 2; }
+        .form-label { display: block; font-size: 0.875rem; font-weight: 500; color: rgb(55 65 81); margin-bottom: 0.25rem; }
+        .dark .form-label { color: rgb(209 213 219); }
+        .form-input { width: 100%; padding: 0.5rem; border-width: 1px; border-color: rgb(209 213 219); border-radius: 0.375rem; color: rgb(17 24 39); background-color: #fff; }
+        .dark .form-input { background-color: rgb(55 65 81); border-color: rgb(75 85 99); color: rgb(255 255 255); }
+        .active-tab { margin-bottom: -1px; border-bottom-width: 2px; border-color: rgb(99 102 241); padding: 0.75rem; font-size: 0.875rem; font-weight: 600; color: rgb(79 70 229); }
+        .dark .active-tab { color: rgb(129 140 248); }
+        .inactive-tab { border-bottom-width: 2px; border-color: transparent; padding: 0.75rem; font-size: 0.875rem; font-weight: 600; color: rgb(107 114 128); }
+        .dark .inactive-tab { color: rgb(156 163 175); }
     </style>
 </head>
 <body class="h-full antialiased text-gray-900 dark:text-gray-100 transition-colors duration-200">
@@ -157,17 +43,10 @@
                         </button>
                     </div>
                 </div>
-                <!-- Main Navigation Tabs -->
                 <div class="flex space-x-1 border-b border-gray-200 dark:border-gray-700">
-                    <button data-tab="loans" class="nav-tab active-tab">
-                        <i data-lucide="book-up" class="icon mr-2"></i>Loans
-                    </button>
-                    <button data-tab="books" class="nav-tab inactive-tab">
-                        <i data-lucide="book-open" class="icon mr-2"></i>Manage Books
-                    </button>
-                    <button data-tab="members" class="nav-tab inactive-tab">
-                        <i data-lucide="users" class="icon mr-2"></i>Manage Members
-                    </button>
+                    <button data-tab="loans" class="nav-tab active-tab"><i data-lucide="book-up" class="icon mr-2"></i>Loans</button>
+                    <button data-tab="books" class="nav-tab inactive-tab"><i data-lucide="book-open" class="icon mr-2"></i>Manage Books</button>
+                    <button data-tab="members" class="nav-tab inactive-tab"><i data-lucide="users" class="icon mr-2"></i>Manage Members</button>
                 </div>
             </nav>
         </header>
@@ -178,48 +57,47 @@
 
                 <!-- Loans Tab Content -->
                 <div id="loans-tab" class="tab-content grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Checkout Form -->
                     <div class="lg:col-span-1">
                         <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
                             <div class="p-5 border-b border-gray-200 dark:border-gray-700">
-                                <h2 class="text-lg font-semibold flex items-center">
-                                    <i data-lucide="log-out" class="icon mr-2 text-green-500"></i>
-                                    Checkout a Book
-                                </h2>
+                                <h2 class="text-lg font-semibold flex items-center"><i data-lucide="log-out" class="icon mr-2 text-green-500"></i>Checkout a Book</h2>
                             </div>
                             <form id="checkout-form" class="p-5 space-y-4">
                                 <div>
                                     <label for="checkout-member" class="form-label">Select Member</label>
-                                    <select id="checkout-member" class="form-input">
-                                        <option value="">Loading members...</option>
-                                    </select>
+                                    <select id="checkout-member" class="form-input"><option value="">Loading members...</option></select>
                                 </div>
                                 <div>
                                     <label for="checkout-book" class="form-label">Select Available Book</label>
-                                    <select id="checkout-book" class="form-input">
-                                        <option value="">Loading available books...</option>
-                                    </select>
+                                    <select id="checkout-book" class="form-input"><option value="">Loading available books...</option></select>
                                 </div>
-                                <button type="submit" class="w-full bg-green-600 text-white font-bold py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 flex items-center justify-center">
-                                    <i data-lucide="check-circle" class="icon mr-2"></i>
-                                    Checkout
+                                <button type="submit" class="w-full bg-green-600 text-white font-bold py-2 px-4 rounded-md hover:bg-green-700 flex items-center justify-center">
+                                    <i data-lucide="check-circle" class="icon mr-2"></i>Checkout
                                 </button>
                             </form>
                         </div>
                     </div>
-                    <!-- Active Loans List -->
                     <div class="lg:col-span-2">
                         <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
                             <div class="p-5 border-b border-gray-200 dark:border-gray-700">
-                                <h2 class="text-lg font-semibold flex items-center">
-                                    <i data-lucide="book-up" class="icon mr-2 text-indigo-500"></i>
-                                    Active Loans
-                                </h2>
+                                <h2 class="text-lg font-semibold flex items-center"><i data-lucide="book-up" class="icon mr-2 text-indigo-500"></i>Active Loans</h2>
                             </div>
                             <div class="p-5">
                                 <div id="active-loans-list" class="space-y-3 max-h-[60vh] overflow-y-auto">
-                                    <!-- Active loans will be dynamically inserted here -->
                                     <p id="no-active-loans" class="text-gray-500 dark:text-gray-400">No active loans found.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fines Due Section -->
+                    <div class="lg:col-span-3">
+                        <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+                            <div class="p-5 border-b border-gray-200 dark:border-gray-700">
+                                <h2 class="text-lg font-semibold flex items-center"><i data-lucide="dollar-sign" class="icon mr-2 text-red-500"></i>Fines Due</h2>
+                            </div>
+                            <div class="p-5">
+                                <div id="unpaid-fines-list" class="space-y-3 max-h-[40vh] overflow-y-auto">
+                                    <p id="no-unpaid-fines" class="text-gray-500 dark:text-gray-400">No unpaid fines found.</p>
                                 </div>
                             </div>
                         </div>
@@ -230,19 +108,13 @@
                 <div id="books-tab" class="tab-content hidden">
                     <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
                         <div class="p-5 border-b border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4">
-                            <h2 class="text-lg font-semibold flex items-center">
-                                <i data-lucide="book-open" class="icon mr-2 text-indigo-500"></i>
-                                Book Catalog
-                            </h2>
+                            <h2 class="text-lg font-semibold flex items-center"><i data-lucide="book-open" class="icon mr-2 text-indigo-500"></i>Book Catalog</h2>
                             <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                                 <div class="relative w-full sm:w-64">
-                                    <input type="search" id="book-search-input" placeholder="Search by title or author..." class="form-input pl-10 w-full">
+                                    <input type="search" id="book-search-input" placeholder="Search..." class="form-input pl-10 w-full">
                                     <i data-lucide="search" class="icon absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
                                 </div>
-                                <button id="add-book-btn" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 flex items-center w-full sm:w-auto justify-center">
-                                    <i data-lucide="plus" class="icon mr-2"></i>
-                                    Add New Book
-                                </button>
+                                <button id="add-book-btn" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700 flex items-center w-full sm:w-auto justify-center"><i data-lucide="plus" class="icon mr-2"></i>Add New Book</button>
                             </div>
                         </div>
                         <div class="p-5">
@@ -252,15 +124,12 @@
                                         <tr>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Title</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Author</th>
-                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">ISBN</th>
-                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Category</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Status</th>
                                             <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody id="books-table-body" class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                                        <!-- Book rows will be dynamically inserted here -->
-                                        <tr><td colspan="6" class="p-4 text-center text-gray-500 dark:text-gray-400">Loading books...</td></tr>
+                                        <tr><td colspan="4" class="p-4 text-center text-gray-500 dark:text-gray-400">Loading books...</td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -272,19 +141,13 @@
                 <div id="members-tab" class="tab-content hidden">
                     <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
                         <div class="p-5 border-b border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4">
-                            <h2 class="text-lg font-semibold flex items-center">
-                                <i data-lucide="users" class="icon mr-2 text-indigo-500"></i>
-                                Library Members
-                            </h2>
+                            <h2 class="text-lg font-semibold flex items-center"><i data-lucide="users" class="icon mr-2 text-indigo-500"></i>Library Members</h2>
                             <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                                 <div class="relative w-full sm:w-64">
-                                    <input type="search" id="member-search-input" placeholder="Search by name or city..." class="form-input pl-10 w-full">
+                                    <input type="search" id="member-search-input" placeholder="Search..." class="form-input pl-10 w-full">
                                     <i data-lucide="search" class="icon absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
                                 </div>
-                                <button id="add-member-btn" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 flex items-center w-full sm:w-auto justify-center">
-                                    <i data-lucide="plus" class="icon mr-2"></i>
-                                    Add New Member
-                                </button>
+                                <button id="add-member-btn" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700 flex items-center w-full sm:w-auto justify-center"><i data-lucide="plus" class="icon mr-2"></i>Add New Member</button>
                             </div>
                         </div>
                         <div class="p-5">
@@ -295,13 +158,11 @@
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Name</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">City</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Status</th>
-                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Join Date</th>
                                             <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody id="members-table-body" class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                                        <!-- Member rows will be dynamically inserted here -->
-                                        <tr><td colspan="5" class="p-4 text-center text-gray-500 dark:text-gray-400">Loading members...</td></tr>
+                                        <tr><td colspan="4" class="p-4 text-center text-gray-500 dark:text-gray-400">Loading members...</td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -313,18 +174,14 @@
         </main>
     </div>
 
-    <!-- Modal for Forms and Messages -->
+    <!-- Modal -->
     <div id="modal" class="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-30 hidden p-4">
         <div id="modal-content" class="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-md transform transition-all">
             <div class="flex justify-between items-center p-4 border-b dark:border-gray-700">
                 <h3 id="modal-title" class="text-lg font-semibold">Modal Title</h3>
-                <button id="modal-close-btn" class="p-1 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700">
-                    <i data-lucide="x" class="icon"></i>
-                </button>
+                <button id="modal-close-btn" class="p-1 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"><i data-lucide="x" class="icon"></i></button>
             </div>
-            <div id="modal-body" class="p-6">
-                <!-- Modal content (form or message) goes here -->
-            </div>
+            <div id="modal-body" class="p-6"></div>
         </div>
     </div>
     
@@ -334,656 +191,264 @@
         <span id="toast-message"></span>
     </div>
 
-    <!-- API-based App Logic -->
     <script type="module">
-        // --- Global State ---
-        let allBooks = [];
-        let allMembers = [];
-        let allActiveLoans = [];
-
-        // --- UI Element References ---
+        let allBooks = [], allMembers = [], allActiveLoans = [], allUnpaidFines = [];
         const tabs = document.querySelectorAll('.nav-tab');
         const tabContents = document.querySelectorAll('.tab-content');
         const modal = document.getElementById('modal');
-        const modalContent = document.getElementById('modal-content');
         const modalTitle = document.getElementById('modal-title');
         const modalBody = document.getElementById('modal-body');
-        const modalCloseBtn = document.getElementById('modal-close-btn');
 
-        // --- Initialization ---
         async function initApp() {
-            try {
-                // Setup UI listeners
-                setupUIListeners();
-                
-                // Load initial data from API
-                await loadAllData();
-
-                // Initialize icons
-                if (window.lucide) {
-                    window.lucide.createIcons();
-                }
-            } catch (error) {
-                console.error("Error initializing app:", error);
-                showToast("Error initializing application.", "error");
-            }
+            setupUIListeners();
+            await loadAllData();
+            if (window.lucide) window.lucide.createIcons();
         }
         
         async function loadAllData() {
-            await Promise.all([
-                loadBooks(),
-                loadMembers(),
-                loadActiveLoans()
-            ]);
+            await Promise.all([loadBooks(), loadMembers(), loadActiveLoans(), loadUnpaidFines()]);
             updateLoanDropdowns();
         }
 
-        // --- Data Loading Functions ---
         async function loadBooks() {
-            const booksTableBody = document.getElementById('books-table-body');
             try {
                 const response = await fetch('/api/books');
-                if (!response.ok) throw new Error('Failed to fetch books');
+                if (!response.ok) throw new Error('Failed');
                 allBooks = await response.json();
-                
                 renderBooksTable();
-            } catch (err) {
-                console.error('Error loading books:', err);
-                booksTableBody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-red-500">Error loading books. Is the backend running?</td></tr>`;
-            }
+            } catch (err) { console.error(err); }
         }
         
         async function loadMembers() {
-            const membersTableBody = document.getElementById('members-table-body');
             try {
                 const response = await fetch('/api/members');
-                if (!response.ok) throw new Error('Failed to fetch members');
+                if (!response.ok) throw new Error('Failed');
                 allMembers = await response.json();
-                
                 renderMembersTable();
-            } catch (err) {
-                 console.error('Error loading members:', err);
-                membersTableBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-red-500">Error loading members. Is the backend running?</td></tr>`;
-            }
+            } catch (err) { console.error(err); }
         }
         
         async function loadActiveLoans() {
             try {
                 const response = await fetch('/api/loans?active=true');
-                if (!response.ok) throw new Error('Failed to fetch loans');
+                if (!response.ok) throw new Error('Failed');
                 allActiveLoans = await response.json();
-                
                 renderActiveLoansList();
-            } catch (err) {
-                console.error('Error loading loans:', err);
-                document.getElementById('active-loans-list').innerHTML = `<p class="text-red-500">Error loading loans.</p>`;
-            }
+            } catch (err) { console.error(err); }
         }
 
-        // --- UI Rendering Functions ---
-        function renderBooksTable() {
-            const booksTableBody = document.getElementById('books-table-body');
-            const searchTerm = document.getElementById('book-search-input').value.toLowerCase();
-            
-            const filteredBooks = allBooks.filter(book => 
-                book.title.toLowerCase().includes(searchTerm) ||
-                book.author.toLowerCase().includes(searchTerm)
-            );
+        async function loadUnpaidFines() {
+            try {
+                const response = await fetch('/api/loans?unpaid=true');
+                if (!response.ok) throw new Error('Failed');
+                allUnpaidFines = await response.json();
+                renderUnpaidFinesList();
+            } catch (err) { console.error(err); }
+        }
 
-            booksTableBody.innerHTML = ''; // Clear loading
-            
-            if (filteredBooks.length === 0) {
-                booksTableBody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-gray-500 dark:text-gray-400">No books found${searchTerm ? ' matching "' + searchTerm + '"' : ". Click 'Add New Book' to start."}</td></tr>`;
-            } else {
-                filteredBooks.forEach(book => {
+        function renderBooksTable() {
+            const body = document.getElementById('books-table-body');
+            const term = document.getElementById('book-search-input').value.toLowerCase();
+            const filtered = allBooks.filter(b => b.title.toLowerCase().includes(term) || b.author.toLowerCase().includes(term));
+            body.innerHTML = '';
+            if (filtered.length === 0) body.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-gray-500">No books found.</td></tr>`;
+            else {
+                filtered.forEach(b => {
                     const tr = document.createElement('tr');
                     tr.className = "hover:bg-gray-50 dark:hover:bg-gray-700";
-                    tr.innerHTML = `
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm font-medium text-gray-900 dark:text-white">${book.title}</div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">${book.author}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">${book.isbn}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">${book.category}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${book.status === 'Available' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'}">
-                                ${book.status}
-                            </span>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
-                            <button class="edit-book-btn text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-200" data-id="${book.id}">Edit</button>
-                            <button class="delete-book-btn text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-200" data-id="${book.id}">Delete</button>
-                        </td>
-                    `;
-                    booksTableBody.appendChild(tr);
+                    tr.innerHTML = `<td class="px-6 py-4"><div class="text-sm font-medium text-gray-900 dark:text-white">${b.title}</div></td>
+                        <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">${b.author}</td>
+                        <td class="px-6 py-4"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${b.status === 'Available' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}">${b.status}</span></td>
+                        <td class="px-6 py-4 text-right text-sm font-medium space-x-2">
+                            <button class="edit-book-btn text-indigo-600 hover:text-indigo-900" data-id="${b.id}">Edit</button>
+                            <button class="delete-book-btn text-red-600 hover:text-red-900" data-id="${b.id}">Delete</button>
+                        </td>`;
+                    body.appendChild(tr);
                 });
             }
         }
 
         function renderMembersTable() {
-            const membersTableBody = document.getElementById('members-table-body');
-            const searchTerm = document.getElementById('member-search-input').value.toLowerCase();
-
-            const filteredMembers = allMembers.filter(member =>
-                member.name.toLowerCase().includes(searchTerm) ||
-                member.city.toLowerCase().includes(searchTerm)
-            );
-            
-            membersTableBody.innerHTML = ''; // Clear loading
-
-            if (filteredMembers.length === 0) {
-                membersTableBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-gray-500 dark:text-gray-400">No members found${searchTerm ? ' matching "' + searchTerm + '"' : ". Click 'Add New Member' to start."}</td></tr>`;
-            } else {
-                filteredMembers.forEach(member => {
-                    const joinDate = new Date(member.joinDate).toLocaleDateString();
-                    
+            const body = document.getElementById('members-table-body');
+            const term = document.getElementById('member-search-input').value.toLowerCase();
+            const filtered = allMembers.filter(m => m.name.toLowerCase().includes(term) || m.city.toLowerCase().includes(term));
+            body.innerHTML = '';
+            if (filtered.length === 0) body.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-gray-500">No members found.</td></tr>`;
+            else {
+                filtered.forEach(m => {
                     const tr = document.createElement('tr');
                     tr.className = "hover:bg-gray-50 dark:hover:bg-gray-700";
-                    tr.innerHTML = `
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm font-medium text-gray-900 dark:text-white">${member.name}</div>
-                            <div class="text-sm text-gray-500 dark:text-gray-400">${member.id}</div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">${member.city}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${member.status === 'A' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'}">
-                                ${member.status === 'A' ? 'Active' : 'Suspended'}
-                            </span>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">${joinDate}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
-                            <button class="edit-member-btn text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-200" data-id="${member.id}">Edit</button>
-                            <button class="delete-member-btn text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-200" data-id="${member.id}">Delete</button>
-                        </td>
-                    `;
-                    membersTableBody.appendChild(tr);
+                    tr.innerHTML = `<td class="px-6 py-4"><div class="text-sm font-medium text-gray-900 dark:text-white">${m.name}</div></td>
+                        <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">${m.city}</td>
+                        <td class="px-6 py-4"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${m.status === 'A' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">${m.status === 'A' ? 'Active' : 'Suspended'}</span></td>
+                        <td class="px-6 py-4 text-right text-sm font-medium space-x-2">
+                            <button class="edit-member-btn text-indigo-600 hover:text-indigo-900" data-id="${m.id}">Edit</button>
+                            <button class="delete-member-btn text-red-600 hover:text-red-900" data-id="${m.id}">Delete</button>
+                        </td>`;
+                    body.appendChild(tr);
                 });
             }
         }
         
         function renderActiveLoansList() {
-            const activeLoansList = document.getElementById('active-loans-list');
-            const noActiveLoansMsg = document.getElementById('no-active-loans');
-            activeLoansList.innerHTML = '';
-            
-            if (allActiveLoans.length === 0) {
-                activeLoansList.appendChild(noActiveLoansMsg);
-                noActiveLoansMsg.style.display = 'block';
-                return;
-            }
-            
-            noActiveLoansMsg.style.display = 'none';
-            
-            allActiveLoans.forEach(loan => {
-                // The API response now populates book and member
-                const book = loan.book;
-                const member = loan.member;
-                
+            const list = document.getElementById('active-loans-list');
+            list.innerHTML = '';
+            if (allActiveLoans.length === 0) return list.innerHTML = `<p class="text-gray-500">No active loans.</p>`;
+            allActiveLoans.forEach(l => {
+                const b = l.book || {}, m = l.member || {};
                 const div = document.createElement('div');
                 div.className = "p-4 border rounded-lg flex flex-col sm:flex-row sm:justify-between sm:items-center bg-gray-50 dark:bg-gray-700 dark:border-gray-600";
-                div.innerHTML = `
-                    <div>
-                        <p class="font-semibold text-gray-900 dark:text-white">${book ? book.title : 'Unknown Book'}</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">Checked out by: <span class="font-medium">${member ? member.name : 'Unknown Member'}</span></p>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Due: ${new Date(loan.dueDate).toLocaleDateString()}</p>
-                    </div>
-                    <button class="return-book-btn mt-3 sm:mt-0 bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 flex items-center justify-center" data-loan-id="${loan.id}" data-book-id="${book.id}">
-                        <i data-lucide="log-in" class="icon mr-2"></i>
-                        Return
-                    </button>
-                `;
-                activeLoansList.appendChild(div);
+                div.innerHTML = `<div><p class="font-semibold text-gray-900 dark:text-white">${b.title || '?'}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">By: ${m.name || '?'}</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Due: ${new Date(l.dueDate).toLocaleDateString()}</p>
+                    ${l.currentFine > 0 ? `<p class="text-sm font-semibold text-red-600">Fine: $${l.currentFine.toFixed(2)}</p>` : ''}</div>
+                    <button class="return-btn bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700" data-lid="${l.id}" data-bid="${b.id}">Return</button>`;
+                list.appendChild(div);
             });
-            if (window.lucide) {
-                window.lucide.createIcons(); // Re-render icons
-            }
         }
-        
-        // --- UI Event Listeners ---
+
+        function renderUnpaidFinesList() {
+            const list = document.getElementById('unpaid-fines-list');
+            list.innerHTML = '';
+            if (allUnpaidFines.length === 0) return list.innerHTML = `<p class="text-gray-500">No unpaid fines.</p>`;
+            allUnpaidFines.forEach(l => {
+                const b = l.book || {}, m = l.member || {};
+                const div = document.createElement('div');
+                div.className = "p-4 border rounded-lg flex flex-col sm:flex-row sm:justify-between sm:items-center bg-gray-50 dark:bg-gray-700 dark:border-gray-600";
+                div.innerHTML = `<div><p class="font-semibold text-gray-900 dark:text-white">${b.title || '?'}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Member: ${m.name || '?'}</p>
+                    <p class="font-semibold text-red-600">Owed: $${(l.fineAmount||0).toFixed(2)}</p></div>
+                    <button class="pay-btn bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-700" data-lid="${l.id}">Mark Paid</button>`;
+                list.appendChild(div);
+            });
+        }
+
         function setupUIListeners() {
-            // Tab switching
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    tabs.forEach(t => t.classList.replace('active-tab', 'inactive-tab'));
-                    tab.classList.replace('inactive-tab', 'active-tab');
-                    tabContents.forEach(content => content.classList.add('hidden'));
-                    document.getElementById(`${tab.dataset.tab}-tab`).classList.remove('hidden');
-                });
-            });
-
-            // Theme toggle
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeIcon = document.getElementById('theme-icon');
-            themeToggle.addEventListener('click', () => {
-                document.documentElement.classList.toggle('dark');
-                if (document.documentElement.classList.contains('dark')) {
-                    themeIcon.setAttribute('data-lucide', 'moon');
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    themeIcon.setAttribute('data-lucide', 'sun');
-                    localStorage.setItem('theme', 'light');
-                }
-                if (window.lucide) window.lucide.createIcons();
-            });
-            // Apply saved theme on load
-            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-                themeIcon.setAttribute('data-lucide', 'moon');
-            }
-            if (window.lucide) window.lucide.createIcons();
-
-            // Modal close
-            modalCloseBtn.addEventListener('click', () => modal.classList.add('hidden'));
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.classList.add('hidden');
-            });
-
-            // --- Search Handlers ---
+            tabs.forEach(t => t.addEventListener('click', () => {
+                tabs.forEach(x => x.classList.replace('active-tab', 'inactive-tab'));
+                t.classList.replace('inactive-tab', 'active-tab');
+                tabContents.forEach(c => c.classList.add('hidden'));
+                document.getElementById(`${t.dataset.tab}-tab`).classList.remove('hidden');
+            }));
+            document.getElementById('theme-toggle').addEventListener('click', () => document.documentElement.classList.toggle('dark'));
+            document.getElementById('modal-close-btn').addEventListener('click', () => modal.classList.add('hidden'));
+            
             document.getElementById('book-search-input').addEventListener('input', renderBooksTable);
             document.getElementById('member-search-input').addEventListener('input', renderMembersTable);
-
-            // --- Form Handlers (Add/Edit) ---
-            document.getElementById('add-book-btn').addEventListener('click', () => _FORM_ACTIONS.showBookForm());
-            document.getElementById('add-member-btn').addEventListener('click', () => _FORM_ACTIONS.showMemberForm());
-
-            // Handle Book Table Clicks (Edit/Delete)
-            document.getElementById('books-table-body').addEventListener('click', (e) => {
-                const target = e.target;
-                const id = target.dataset.id;
-                if (!id) return;
-                if (target.classList.contains('edit-book-btn')) {
-                    _FORM_ACTIONS.showBookForm(id);
-                } else if (target.classList.contains('delete-book-btn')) {
-                    _FORM_ACTIONS.deleteBook(id);
-                }
-            });
+            document.getElementById('add-book-btn').addEventListener('click', () => _FORM.book());
+            document.getElementById('add-member-btn').addEventListener('click', () => _FORM.member());
             
-            // Handle Member Table Clicks (Edit/Delete)
-            document.getElementById('members-table-body').addEventListener('click', (e) => {
-                const target = e.target;
-                const id = target.dataset.id;
-                if (!id) return;
-                if (target.classList.contains('edit-member-btn')) {
-                    _FORM_ACTIONS.showMemberForm(id);
-                } else if (target.classList.contains('delete-member-btn')) {
-                    _FORM_ACTIONS.deleteMember(id);
-                }
+            document.getElementById('checkout-form').addEventListener('submit', _LOAN.checkout);
+            document.getElementById('books-table-body').addEventListener('click', e => {
+                if(e.target.classList.contains('edit-book-btn')) _FORM.book(e.target.dataset.id);
+                if(e.target.classList.contains('delete-book-btn')) _FORM.delBook(e.target.dataset.id);
             });
-            
-            // --- Loan Handlers ---
-            document.getElementById('checkout-form').addEventListener('submit', _LOAN_ACTIONS.checkoutBook);
-            document.getElementById('active-loans-list').addEventListener('click', (e) => {
-                const target = e.target.closest('.return-book-btn');
-                if (target) {
-                    const loanId = target.dataset.loanId;
-                    const bookId = target.dataset.bookId;
-                    _LOAN_ACTIONS.returnBook(loanId, bookId);
-                }
+            document.getElementById('members-table-body').addEventListener('click', e => {
+                if(e.target.classList.contains('edit-member-btn')) _FORM.member(e.target.dataset.id);
+                if(e.target.classList.contains('delete-member-btn')) _FORM.delMember(e.target.dataset.id);
+            });
+            document.getElementById('active-loans-list').addEventListener('click', e => {
+                if(e.target.classList.contains('return-btn')) _LOAN.return(e.target.dataset.lid, e.target.dataset.bid);
+            });
+            document.getElementById('unpaid-fines-list').addEventListener('click', e => {
+                if(e.target.classList.contains('pay-btn')) _LOAN.pay(e.target.dataset.lid);
             });
         }
-        
-        // --- Loan Dropdown Population ---
+
         function updateLoanDropdowns() {
-            const memberSelect = document.getElementById('checkout-member');
-            const bookSelect = document.getElementById('checkout-book');
-            
-            // Populate members
-            memberSelect.innerHTML = '<option value="">Select a member</option>';
-            allMembers.forEach(member => {
-                if (member.status === 'A') { // Only active members
-                    memberSelect.innerHTML += `<option value="${member.id}">${member.name}</option>`;
-                }
-            });
-            if (allMembers.length === 0) memberSelect.innerHTML = '<option value="">No members found</option>';
-
-            // Populate available books
-            bookSelect.innerHTML = '<option value="">Select a book</option>';
-            const availableBooks = allBooks.filter(book => book.status === 'Available');
-            availableBooks.forEach(book => {
-                bookSelect.innerHTML += `<option value="${book.id}">${book.title}</option>`;
-            });
-            if (allBooks.length === 0) bookSelect.innerHTML = '<option value="">No books found</option>';
-            else if (availableBooks.length === 0) bookSelect.innerHTML = '<option value="">No books are currently available</option>';
+            const ms = document.getElementById('checkout-member'), bs = document.getElementById('checkout-book');
+            ms.innerHTML = '<option value="">Select Member</option>' + allMembers.filter(m=>m.status==='A').map(m=>`<option value="${m.id}">${m.name}</option>`).join('');
+            bs.innerHTML = '<option value="">Select Book</option>' + allBooks.filter(b=>b.status==='Available').map(b=>`<option value="${b.id}">${b.title}</option>`).join('');
         }
 
-        // --- Action Handlers (Namespaced) ---
-
-        const _FORM_ACTIONS = {
-            // --- Book Form ---
-            showBookForm: (id = null) => {
-                const isEditing = id !== null;
-                const book = isEditing ? allBooks.find(b => b.id === id) : {};
-                
-                modalTitle.textContent = isEditing ? 'Edit Book' : 'Add New Book';
-                modalBody.innerHTML = `
-                    <form id="book-form" class="space-y-4">
-                        <input type="hidden" id="book-id" value="${isEditing ? id : ''}">
-                        <div>
-                            <label for="book-title" class="form-label">Title</label>
-                            <input type="text" id="book-title" class="form-input" required value="${book.title || ''}">
-                        </div>
-                        <div>
-                            <label for="book-author" class="form-label">Author</label>
-                            <input type="text" id="book-author" class="form-input" required value="${book.author || ''}">
-                        </div>
-                        <div>
-                            <label for="book-isbn" class="form-label">ISBN</label>
-                            <input type="text" id="book-isbn" class="form-input" required value="${book.isbn || ''}">
-                        </div>
-                        <div>
-                            <label for="book-category" class="form-label">Category</label>
-                            <input type="text" id="book-category" class="form-input" required value="${book.category || ''}">
-                        </div>
-                        <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
-                            ${isEditing ? 'Update Book' : 'Add Book'}
-                        </button>
-                    </form>
-                `;
+        const _FORM = {
+            book: (id=null) => {
+                const b = id ? allBooks.find(x=>x.id===id) : {};
+                modalTitle.textContent = id ? 'Edit Book' : 'Add Book';
+                modalBody.innerHTML = `<form id="bf" class="space-y-4"><input type="hidden" id="bid" value="${id||''}">
+                    <div><label class="form-label">Title</label><input id="bt" class="form-input" required value="${b.title||''}"></div>
+                    <div><label class="form-label">Author</label><input id="ba" class="form-input" required value="${b.author||''}"></div>
+                    <div><label class="form-label">ISBN</label><input id="bi" class="form-input" required value="${b.isbn||''}"></div>
+                    <div><label class="form-label">Category</label><input id="bc" class="form-input" required value="${b.category||''}"></div>
+                    <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded">Save</button></form>`;
                 modal.classList.remove('hidden');
-                
-                document.getElementById('book-form').addEventListener('submit', _FORM_ACTIONS.handleBookSubmit);
-            },
-            
-            handleBookSubmit: async (e) => {
-                e.preventDefault();
-                const id = document.getElementById('book-id').value;
-                const isEditing = id !== '';
-                
-                const bookData = {
-                    title: document.getElementById('book-title').value,
-                    author: document.getElementById('book-author').value,
-                    isbn: document.getElementById('book-isbn').value,
-                    category: document.getElementById('book-category').value,
-                };
-                
-                try {
-                    const url = isEditing ? `/api/books?id=${id}` : '/api/books';
-                    const method = isEditing ? 'PUT' : 'POST';
-                    
-                    if (!isEditing) {
-                        bookData.status = 'Available'; // Set default status for new books
-                    }
-                    
-                    const response = await fetch(url, {
-                        method: method,
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(bookData)
+                document.getElementById('bf').onsubmit = async (e) => {
+                    e.preventDefault();
+                    await apiCall(id?`/api/books?id=${id}`:'/api/books', id?'PUT':'POST', {
+                        title: document.getElementById('bt').value, author: document.getElementById('ba').value,
+                        isbn: document.getElementById('bi').value, category: document.getElementById('bc').value,
+                        status: id ? b.status : 'Available'
                     });
-                    
-                    if (!response.ok) throw new Error(await response.text());
-                    
-                    showToast(isEditing ? "Book updated!" : "Book added!", "success");
-                    modal.classList.add('hidden');
-                    loadAllData(); // Refresh all data
-                } catch (error) {
-                    console.error("Error saving book:", error);
-                    showToast("Error saving book.", "error");
-                }
+                    modal.classList.add('hidden'); loadAllData();
+                };
             },
-            
-            deleteBook: async (id) => {
-                const book = allBooks.find(b => b.id === id);
-                if (book.status === 'On Loan') {
-                    showToast("Cannot delete a book that is currently on loan.", "error");
-                    return;
-                }
-                
-                if (!await showConfirm("Are you sure you want to delete this book? This action cannot be undone.")) {
-                    return;
-                }
-
-                try {
-                    const response = await fetch(`/api/books?id=${id}`, { method: 'DELETE' });
-                    if (!response.ok) throw new Error(await response.text());
-                    
-                    showToast("Book deleted successfully!", "success");
-                    loadAllData(); // Refresh all data
-                } catch (error) {
-                    console.error("Error deleting book:", error);
-                    showToast("Error deleting book.", "error");
-                }
+            delBook: async (id) => {
+                if(!confirm('Delete this book?')) return;
+                await apiCall(`/api/books?id=${id}`, 'DELETE'); loadAllData();
             },
-            
-            // --- Member Form ---
-            showMemberForm: (id = null) => {
-                const isEditing = id !== null;
-                const member = isEditing ? allMembers.find(m => m.id === id) : {};
-                
-                modalTitle.textContent = isEditing ? 'Edit Member' : 'Add New Member';
-                modalBody.innerHTML = `
-                    <form id="member-form" class="space-y-4">
-                        <input type="hidden" id="member-id" value="${isEditing ? id : ''}">
-                        <div>
-                            <label for="member-name" class="form-label">Name (UPPERCASE)</label>
-                            <input type="text" id="member-name" class="form-input" required value="${member.name || ''}" oninput="this.value = this.value.toUpperCase()">
-                        </div>
-                        <div>
-                            <label for="member-city" class="form-label">City</label>
-                            <input type="text" id="member-city" class="form-input" required value="${member.city || ''}">
-                        </div>
-                        <div>
-                            <label for="member-status" class="form-label">Status</label>
-                            <select id="member-status" class="form-input">
-                                <option value="A" ${member.status === 'A' ? 'selected' : ''}>Active</option>
-                                <option value="S" ${member.status === 'S' ? 'selected' : ''}>Suspended</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
-                            ${isEditing ? 'Update Member' : 'Add Member'}
-                        </button>
-                    </form>
-                `;
+            member: (id=null) => {
+                const m = id ? allMembers.find(x=>x.id===id) : {};
+                modalTitle.textContent = id ? 'Edit Member' : 'Add Member';
+                modalBody.innerHTML = `<form id="mf" class="space-y-4"><input type="hidden" id="mid" value="${id||''}">
+                    <div><label class="form-label">Name</label><input id="mn" class="form-input" required value="${m.name||''}" oninput="this.value=this.value.toUpperCase()"></div>
+                    <div><label class="form-label">City</label><input id="mc" class="form-input" required value="${m.city||''}"></div>
+                    <div><label class="form-label">Status</label><select id="ms" class="form-input"><option value="A" ${m.status==='A'?'selected':''}>Active</option><option value="S" ${m.status==='S'?'selected':''}>Suspended</option></select></div>
+                    <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded">Save</button></form>`;
                 modal.classList.remove('hidden');
-                
-                document.getElementById('member-form').addEventListener('submit', _FORM_ACTIONS.handleMemberSubmit);
-            },
-            
-            handleMemberSubmit: async (e) => {
-                e.preventDefault();
-                const id = document.getElementById('member-id').value;
-                const isEditing = id !== '';
-                
-                const memberData = {
-                    name: document.getElementById('member-name').value,
-                    city: document.getElementById('member-city').value,
-                    status: document.getElementById('member-status').value,
+                document.getElementById('mf').onsubmit = async (e) => {
+                    e.preventDefault();
+                    await apiCall(id?`/api/members?id=${id}`:'/api/members', id?'PUT':'POST', {
+                        name: document.getElementById('mn').value, city: document.getElementById('mc').value,
+                        status: document.getElementById('ms').value, joinDate: id ? m.joinDate : new Date()
+                    });
+                    modal.classList.add('hidden'); loadAllData();
                 };
-
-                if (memberData.name !== memberData.name.toUpperCase()) {
-                    showToast("Name must be in UPPERCASE.", "error");
-                    return;
-                }
-                
-                try {
-                    const url = isEditing ? `/api/members?id=${id}` : '/api/members';
-                    const method = isEditing ? 'PUT' : 'POST';
-
-                    if (!isEditing) {
-                        memberData.joinDate = new Date().toISOString(); // Set joinDate for new members
-                    }
-
-                    const response = await fetch(url, {
-                        method: method,
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(memberData)
-                    });
-                    
-                    if (!response.ok) throw new Error(await response.text());
-                    
-                    showToast(isEditing ? "Member updated!" : "Member added!", "success");
-                    modal.classList.add('hidden');
-                    loadAllData(); // Refresh all data
-                } catch (error) {
-                    console.error("Error saving member:", error);
-                    showToast("Error saving member.", "error");
-                }
             },
-            
-            deleteMember: async (id) => {
-                // Check for active loans before deleting
-                // We refetch active loans just to be sure
-                let activeLoans = [];
-                try {
-                    const res = await fetch('/api/loans?active=true');
-                    activeLoans = await res.json();
-                } catch (e) {
-                    showToast("Could not verify active loans. Please try again.", "error");
-                    return;
-                }
-
-                const hasLoan = activeLoans.some(loan => loan.member.id === id);
-                if (hasLoan) {
-                    showToast("Cannot delete a member with active loans.", "error");
-                    return;
-                }
-
-                if (!await showConfirm("Are you sure you want to delete this member?")) {
-                    return;
-                }
-
-                try {
-                    const response = await fetch(`/api/members?id=${id}`, { method: 'DELETE' });
-                    if (!response.ok) {
-                        const err = await response.json();
-                        throw new Error(err.error || 'Failed to delete member');
-                    }
-
-                    showToast("Member deleted.", "success");
-                    loadAllData(); // Refresh all data
-                } catch (error) {
-                    console.error("Error deleting member:", error);
-                    showToast(error.message || "Error deleting member.", "error");
-                }
-            },
-        };
-
-        const _LOAN_ACTIONS = {
-            checkoutBook: async (e) => {
-                e.preventDefault();
-                const memberId = document.getElementById('checkout-member').value;
-                const bookId = document.getElementById('checkout-book').value;
-                
-                if (!memberId || !bookId) {
-                    showToast("Please select both a member and a book.", "error");
-                    return;
-                }
-                
-                try {
-                    const dueDate = new Date();
-                    dueDate.setDate(dueDate.getDate() + 14); // 2-week loan period
-                    
-                    const response = await fetch('/api/loans', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            memberId: memberId,
-                            bookId: bookId,
-                            dueDate: dueDate.toISOString(),
-                        })
-                    });
-                    
-                    if (!response.ok) throw new Error(await response.text());
-                    
-                    showToast("Book checked out successfully!", "success");
-                    e.target.reset(); // Reset form
-                    loadAllData(); // Refresh all data
-                } catch (error) {
-                    console.error("Error checking out book:", error);
-                    showToast(error.message || "Error checking out book.", "error");
-                }
-            },
-            
-            returnBook: async (loanId, bookId) => {
-                if (!loanId || !bookId) {
-                    showToast("Invalid loan or book ID.", "error");
-                    return;
-                }
-                
-                try {
-                    const response = await fetch(`/api/loans?id=${loanId}`, {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ 
-                            returnDate: new Date().toISOString(),
-                            bookId: bookId // Pass bookId to API to update its status
-                        })
-                    });
-                    
-                    if (!response.ok) throw new Error(await response.text());
-
-                    showToast("Book returned successfully!", "success");
-                    loadAllData(); // Refresh all data
-                } catch (error) {
-                    console.error("Error returning book:", error);
-                    showToast("Error returning book.", "error");
-                }
+            delMember: async (id) => {
+                if(!confirm('Delete this member?')) return;
+                await apiCall(`/api/members?id=${id}`, 'DELETE'); loadAllData();
             }
         };
 
-        // --- Utility Functions ---
-
-        function showToast(message, type = "success") {
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toast-message');
-            const toastIcon = document.getElementById('toast-icon');
-            
-            toastMessage.textContent = message;
-            
-            if (type === 'success') {
-                toast.classList.remove('bg-red-600');
-                toast.classList.add('bg-gray-900');
-                toastIcon.setAttribute('data-lucide', 'check-circle');
-            } else {
-                toast.classList.remove('bg-gray-900');
-                toast.classList.add('bg-red-600');
-                toastIcon.setAttribute('data-lucide', 'alert-triangle');
+        const _LOAN = {
+            checkout: async (e) => {
+                e.preventDefault();
+                const mid = document.getElementById('checkout-member').value, bid = document.getElementById('checkout-book').value;
+                if(!mid || !bid) return alert('Select member and book');
+                const due = new Date(); due.setDate(due.getDate()+14);
+                await apiCall('/api/loans', 'POST', { memberId: mid, bookId: bid, dueDate: due });
+                e.target.reset(); 
+                // Delay added here to prevent race condition
+                setTimeout(loadAllData, 500);
+            },
+            return: async (lid, bid) => {
+                await apiCall(`/api/loans?id=${lid}`, 'PUT', { returnDate: new Date(), bookId: bid });
+                // Delay added here to prevent race condition
+                setTimeout(loadAllData, 500);
+            },
+            pay: async (lid) => {
+                await apiCall(`/api/loans?id=${lid}`, 'PUT', { fineStatus: 'Paid' });
+                // Delay added here to prevent race condition
+                setTimeout(loadAllData, 500);
             }
-            if (window.lucide) {
-                window.lucide.createIcons();
-            }
-            
-            toast.style.opacity = 1;
-            setTimeout(() => {
-                toast.style.opacity = 0;
-            }, 3000);
-        }
-        
-        async function showConfirm(message) {
-            return new Promise((resolve) => {
-                modalTitle.textContent = "Please Confirm";
-                modalBody.innerHTML = `
-                    <p class="text-gray-700 dark:text-gray-300 mb-4">${message}</p>
-                    <div class="flex justify-end space-x-3">
-                        <button id="confirm-cancel" class="bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-md hover:bg-gray-300 dark:hover:bg-gray-500">Cancel</button>
-                        <button id="confirm-ok" class="bg-red-600 text-white font-bold py-2 px-4 rounded-md hover:bg-red-700">Confirm</button>
-                    </div>
-                `;
-                modal.classList.remove('hidden');
-                
-                const cancelBtn = document.getElementById('confirm-cancel');
-                const okBtn = document.getElementById('confirm-ok');
-                
-                const cleanup = (result) => {
-                    modal.classList.add('hidden');
-                    resolve(result);
-                };
-                
-                cancelBtn.onclick = () => cleanup(false);
-                okBtn.onclick = () => cleanup(true);
-            });
-        }
-        
-        // --- Global CSS Class Definitions (for dynamic elements) ---
-        // (This is a hack to make Tailwind's JIT compiler see these classes)
-        const dummyStyles = `
-            .bg-green-100 .text-green-800 .dark:bg-green-900 .dark:text-green-200
-            .bg-yellow-100 .text-yellow-800 .dark:bg-yellow-900 .dark:text-yellow-200
-            .bg-red-100 .text-red-800 .dark:bg-red-900 .dark:text-red-200
-        `;
+        };
 
-        // --- Start the App ---
+        async function apiCall(url, method, body) {
+            try {
+                const res = await fetch(url, { method, headers: {'Content-Type': 'application/json'}, body: body ? JSON.stringify(body) : undefined });
+                if(!res.ok) throw new Error(await res.text());
+                showToast('Success');
+            } catch(e) { console.error(e); showToast(e.message, 'error'); }
+        }
+
+        function showToast(msg, type='success') {
+            const t = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = msg;
+            t.className = `fixed bottom-5 right-5 text-white py-3 px-5 rounded shadow-lg z-50 flex items-center space-x-2 transition-opacity duration-300 ${type==='success'?'bg-gray-900':'bg-red-600'}`;
+            t.style.opacity = 1; setTimeout(()=>t.style.opacity=0, 3000);
+        }
+
         window.onload = initApp;
-
     </script>
 </body>
 </html>
