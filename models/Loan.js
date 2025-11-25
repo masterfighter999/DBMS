@@ -23,6 +23,16 @@ const LoanSchema = new mongoose.Schema({
     type: Date,
     default: null, // null indicates the loan is active
   },
+  // --- New Fields for Fine Handling ---
+  fineAmount: {
+    type: Number,
+    default: 0,
+  },
+  fineStatus: {
+    type: String,
+    enum: ['None', 'Unpaid', 'Paid'],
+    default: 'None',
+  },
 });
 
 // Virtual for 'id'
