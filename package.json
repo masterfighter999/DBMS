@@ -1,14 +1,15 @@
 {
   "name": "library-management-system",
   "version": "1.0.0",
-  "description": "Library system with Vercel and MongoDB",
+  "description": "Library system with Vercel, MongoDB and Redis",
   "main": "index.html",
   "scripts": {
     "dev": "vercel dev",
     "deploy": "vercel --prod"
   },
   "dependencies": {
-    "mongoose": "^8.0.0"
+    "mongoose": "^8.0.0",
+    "@upstash/redis": "^1.28.0"
   },
   "devDependencies": {
     "vercel": "^32.0.0"
