@@ -10,6 +10,9 @@ const BOOKS_CACHE_KEY = 'books:all';
 
 // FAIL-SAFE Helper
 async function updateBookInCache(bookId, newStatus) {
+    // 1. Safety Check: If Redis isn't connected, stop immediately.
+    if (!redis) return;
+
     try {
         const cachedData = await redis.get(BOOKS_CACHE_KEY);
         if (cachedData) {
@@ -21,7 +24,6 @@ async function updateBookInCache(bookId, newStatus) {
         }
     } catch (error) {
         console.warn("Redis Smart Update Failed (Ignoring):", error.message);
-        // Try to delete just in case, but ignore errors
         try { await redis.del(BOOKS_CACHE_KEY); } catch (e) {}
     }
 }
@@ -30,7 +32,13 @@ export default async function handler(req, res) {
   const { method } = req;
   const { id, active, unpaid } = req.query;
 
-  await dbConnect();
+  // 2. Ensure DB Connects First
+  try {
+    await dbConnect();
+  } catch (dbError) {
+    console.error("Database Connection Failed:", dbError);
+    return res.status(500).json({ success: false, error: "Database Connection Failed" });
+  }
 
   switch (method) {
     case 'GET':
@@ -78,7 +86,9 @@ export default async function handler(req, res) {
           const loan = await Loan.findByIdAndUpdate(id, { fineStatus: 'Paid' }, { new: true });
           if (!loan) return res.status(404).json({ success: false, error: 'Loan not found' });
           
-          produceEvent('FINE_PAID', { loanId: id, amount: loan.fineAmount });
+          // Use Kafka safely
+          try { await produceEvent('FINE_PAID', { loanId: id, amount: loan.fineAmount }); } catch(e) { console.warn("Kafka Error:", e.message); }
+          
           return res.status(200).json(loan);
         }
         
@@ -107,11 +117,11 @@ export default async function handler(req, res) {
           
           if (bookId) {
               await Book.findByIdAndUpdate(bookId, { status: 'Available' });
-              // Redis update (Safe)
               await updateBookInCache(bookId, 'Available');
           }
           
-          produceEvent('BOOK_RETURNED', { loanId: id, bookId, fine: fineCalculated });
+          try { await produceEvent('BOOK_RETURNED', { loanId: id, bookId, fine: fineCalculated }); } catch(e) { console.warn("Kafka Error:", e.message); }
+
           return res.status(200).json(loan);
         }
         res.status(400).json({ success: false, error: 'Invalid PUT request.' });
@@ -126,10 +136,10 @@ export default async function handler(req, res) {
         const loan = await Loan.create({ bookId, memberId, dueDate, returnDate: null });
         await Book.findByIdAndUpdate(bookId, { status: 'On Loan' });
         
-        // Redis update (Safe)
         await updateBookInCache(bookId, 'On Loan');
         
-        produceEvent('BOOK_CHECKED_OUT', { loanId: loan._id, bookId, memberId, dueDate });
+        try { await produceEvent('BOOK_CHECKED_OUT', { loanId: loan._id, bookId, memberId, dueDate }); } catch(e) { console.warn("Kafka Error:", e.message); }
+
         res.status(201).json(loan);
       } catch (error) {
         res.status(500).json({ success: false, error: error.message });
